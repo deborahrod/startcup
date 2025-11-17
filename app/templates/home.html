@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>START CUP - Home</title>
+    <style>
+        @font-face {
+            font-family: 'Rague';
+            src: url("{{ url_for('static', filename='fonts/Rague-Regular.otf') }}") format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rague', 'Arial', sans-serif;
+            background: #0a1a3a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(15px, 3vw, 40px) clamp(10px, 2vw, 20px);
+        }
+
+        .container {
+            width: 100%;
+            max-width: min(800px, 95vw);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 0 clamp(10px, 2vw, 20px);
+        }
+
+        .title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: bold;
+            color: #64B5F6;
+            text-transform: uppercase;
+            letter-spacing: clamp(1px, 0.3vw, 3px);
+            text-shadow: 0 0 20px rgba(100, 181, 246, 0.5);
+            margin-bottom: clamp(20px, 4vh, 40px);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .buttons-container {
+            width: 100%;
+            max-width: min(600px, 90vw);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(10px, 2vh, 15px);
+            margin-bottom: clamp(20px, 4vh, 40px);
+        }
+
+        .menu-button {
+            background: #64B5F6;
+            color: white;
+            border: none;
+            padding: clamp(14px, 2.5vw, 18px) clamp(20px, 4vw, 30px);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: clamp(0.5px, 0.1vw, 1px);
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(100, 181, 246, 0.3);
+        }
+
+        .menu-button:hover {
+            background: #42A5F5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(100, 181, 246, 0.4);
+        }
+
+        .menu-button:active {
+            transform: translateY(0);
+        }
+
+        .parcerias-container {
+            margin-top: auto;
+            margin-bottom: clamp(15px, 3vh, 20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0 clamp(10px, 2vw, 20px);
+        }
+
+        .parcerias-img {
+            max-width: min(500px, 90vw);
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Botão Voltar */
+        .back-button {
+            position: fixed;
+            top: clamp(10px, 2vh, 20px);
+            left: clamp(10px, 2vw, 20px);
+            background: #64B5F6;
+            color: white;
+            border: none;
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
+            border-radius: 50%;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #42A5F5;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(100, 181, 246, 0.6);
+        }
+
+        .back-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Media Queries para diferentes tamanhos de tela */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px 10px;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .title {
+                margin-bottom: 25px;
+            }
+
+            .buttons-container {
+                gap: 12px;
+                margin-bottom: 25px;
+            }
+
+            .menu-button {
+                padding: 14px 20px;
+            }
+
+            .parcerias-container {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+
+            .buttons-container {
+                gap: 13px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 600px) {
+            .title {
+                font-size: clamp(1.5rem, 5vh, 3rem);
+                margin-bottom: 20px;
+            }
+
+            .buttons-container {
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .menu-button {
+                padding: 12px 20px;
+            }
+
+            .parcerias-container {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('frontend.index') }}" class="back-button">&lt;</a>
+    <div class="container">
+        <h1 class="title">START CUP</h1>
+        
+        <div class="buttons-container">
+            <a href="{{ url_for('frontend.inscrevase') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Inscreva-se</a>
+            <a href="{{ url_for('frontend.desafios') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Desafios</a>
+            <a href="{{ url_for('frontend.ranking') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Ranking</a>
+            <a href="#" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Ver Regras</a>
+        </div>
+    </div>
+
+    <div class="parcerias-container">
+        <img src="{{ url_for('static', filename='images/parcerias.png') }}" alt="Parcerias" class="parcerias-img">
+    </div>
+</body>
+</html>
+

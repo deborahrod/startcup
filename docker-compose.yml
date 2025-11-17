@@ -1,0 +1,26 @@
+
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_criptorace
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123#&CR
+      MYSQL_DATABASE: criptorace
+      MYSQL_USER: criptoracer
+      MYSQL_PASSWORD: raceCripto123#&
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+    networks:
+      - criptorace_net
+
+volumes:
+  mysql_data:
+
+networks:
+  criptorace_net:
+    driver: bridge

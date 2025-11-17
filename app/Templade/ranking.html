@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>START CUP - Ranking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a1a3a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #64B5F6;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(100, 181, 246, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #64B5F6;
+            margin-bottom: 40px;
+            font-weight: normal;
+        }
+
+        .ranking-table {
+            width: 100%;
+            max-width: 700px;
+            border-collapse: collapse;
+            background: rgba(100, 181, 246, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+            margin-bottom: 40px;
+        }
+
+        .ranking-table thead {
+            background: #64B5F6;
+        }
+
+        .ranking-table th {
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .ranking-table tbody tr {
+            border-bottom: 1px solid rgba(100, 181, 246, 0.3);
+            transition: background 0.3s ease;
+        }
+
+        .ranking-table tbody tr:hover {
+            background: rgba(100, 181, 246, 0.2);
+        }
+
+        .ranking-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .ranking-table td {
+            color: #64B5F6;
+            padding: 15px;
+            font-size: 1rem;
+        }
+
+        .ranking-table td:first-child {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .trophy-icon {
+            font-size: 1.5rem;
+        }
+
+        .position {
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-width: 30px;
+        }
+
+        .coin-cell {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .coin-icon-small {
+            font-size: 1rem;
+        }
+
+        .parcerias-container {
+            margin-top: auto;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .parcerias-img {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Botão Voltar */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #64B5F6;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #42A5F5;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(100, 181, 246, 0.6);
+        }
+
+        .back-button:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .ranking-table th,
+            .ranking-table td {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .parcerias-img {
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="home.html" class="back-button">&lt;</a>
+    <div class="container">
+        <h1 class="title">START CUP</h1>
+        <h2 class="subtitle">Ranking</h2>
+
+        <table class="ranking-table">
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Participante</th>
+                    <th>Moedas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="position">1º</span>
+                        <span class="trophy-icon">🥇</span>
+                    </td>
+                    <td>João Silva</td>
+                    <td class="coin-cell">
+                        <span class="coin-icon-small">🪙</span>
+                        <span>1250</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="position">2º</span>
+                        <span class="trophy-icon">🥈</span>
+                    </td>
+                    <td>Maria Santos</td>
+                    <td class="coin-cell">
+                        <span class="coin-icon-small">🪙</span>
+                        <span>980</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="position">3º</span>
+                        <span class="trophy-icon">🥉</span>
+                    </td>
+                    <td>Pedro Oliveira</td>
+                    <td class="coin-cell">
+                        <span class="coin-icon-small">🪙</span>
+                        <span>750</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="position">4º</span>
+                    </td>
+                    <td>Ana Costa</td>
+                    <td class="coin-cell">
+                        <span class="coin-icon-small">🪙</span>
+                        <span>620</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="position">5º</span>
+                    </td>
+                    <td>Carlos Ferreira</td>
+                    <td class="coin-cell">
+                        <span class="coin-icon-small">🪙</span>
+                        <span>580</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="position">6º</span>
+                    </td>
+                    <td>Julia Alves</td>
+                    <td class="coin-cell">
+                        <span class="coin-icon-small">🪙</span>
+                        <span>450</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="position">7º</span>
+                    </td>
+                    <td>Lucas Rodrigues</td>
+                    <td class="coin-cell">
+                        <span class="coin-icon-small">🪙</span>
+                        <span>380</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="position">8º</span>
+                    </td>
+                    <td>Fernanda Lima</td>
+                    <td class="coin-cell">
+                        <span class="coin-icon-small">🪙</span>
+                        <span>320</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="parcerias-container">
+        <img src="images/parcerias.png" alt="Parcerias" class="parcerias-img">
+    </div>
+</body>
+</html>
+

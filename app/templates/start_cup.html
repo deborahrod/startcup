@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>START CUP</title>
+    <style>
+        @font-face {
+            font-family: 'Rague';
+            src: url("{{ url_for('static', filename='fonts/Rague-Regular.otf') }}") format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rague', 'Arial', sans-serif;
+            background: #0a1a3a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(15px, 3vw, 40px) clamp(10px, 2vw, 20px);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 0 clamp(10px, 2vw, 20px);
+        }
+
+        /* Título START CUP */
+        .title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: bold;
+            color: #64B5F6;
+            text-transform: uppercase;
+            letter-spacing: clamp(1px, 0.3vw, 3px);
+            margin-bottom: clamp(10px, 2vh, 20px);
+            text-shadow: 0 0 20px rgba(100, 181, 246, 0.5);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Ícone de troféu */
+        .trophy {
+            width: clamp(100px, 20vw, 160px);
+            height: clamp(100px, 20vw, 160px);
+            margin-bottom: clamp(10px, 2vh, 20px);
+            filter: drop-shadow(0 0 10px rgba(100, 181, 246, 0.5));
+        }
+
+        .trophy img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Botão Iniciar */
+        .start-button {
+            background: linear-gradient(135deg, #64B5F6 0%, #2196F3 100%);
+            color: white;
+            border: none;
+            padding: clamp(12px, 2vw, 15px) clamp(25px, 5vw, 40px);
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: clamp(1px, 0.2vw, 2px);
+            border-radius: 30px;
+            cursor: pointer;
+            margin-bottom: clamp(20px, 4vh, 40px);
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .start-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(100, 181, 246, 0.6);
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        }
+
+        .start-button:active {
+            transform: translateY(0);
+        }
+
+        /* Container das imagens */
+        .images-container {
+            width: 100%;
+            max-width: min(800px, 95vw);
+            margin-top: auto;
+            margin-bottom: clamp(15px, 3vh, 40px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            line-height: 0;
+            font-size: 0;
+        }
+
+        /* Imagem do logo (quadrado) - acima da imagem de parcerias */
+        .logo-img {
+            width: clamp(120px, 25vw, 200px);
+            height: clamp(120px, 25vw, 200px);
+            object-fit: contain;
+            display: block;
+            margin: 0;
+            padding: 0;
+            vertical-align: bottom;
+        }
+
+        /* Imagem de parcerias (retângulo) */
+        .parcerias-img {
+            width: 100%;
+            max-width: min(800px, 95vw);
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+            vertical-align: bottom;
+        }
+
+        /* Botão Voltar */
+        .back-button {
+            position: fixed;
+            top: clamp(10px, 2vh, 20px);
+            left: clamp(10px, 2vw, 20px);
+            background: #64B5F6;
+            color: white;
+            border: none;
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
+            border-radius: 50%;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #42A5F5;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(100, 181, 246, 0.6);
+        }
+
+        .back-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Media Queries para diferentes tamanhos de tela */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px 10px;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .title {
+                margin-bottom: 15px;
+            }
+
+            .start-button {
+                padding: 12px 30px;
+                margin-bottom: 25px;
+            }
+
+            .images-container {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 600px) {
+            .title {
+                font-size: clamp(1.5rem, 5vh, 3rem);
+                margin-bottom: 10px;
+            }
+
+            .trophy {
+                width: clamp(80px, 16vh, 120px);
+                height: clamp(80px, 16vh, 120px);
+                margin-bottom: 10px;
+            }
+
+            .trophy img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .start-button {
+                margin-bottom: 20px;
+            }
+
+            .images-container {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="back-button" style="display: none;">&lt;</a>
+    <div class="container">
+        <!-- Título START CUP -->
+        <h1 class="title">START CUP</h1>
+
+        <!-- Ícone de troféu -->
+        <div class="trophy">
+            <img src="{{ url_for('static', filename='images/trofeu.png') }}" alt="Troféu">
+        </div>
+
+        <!-- Botão Iniciar -->
+        <a href="{{ url_for('frontend.home') }}" class="start-button">Iniciar</a>
+
+        <!-- Container das imagens -->
+        <div class="images-container"><!-- Imagem do logo (quadrado) - acima da imagem de parcerias -->
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo START" class="logo-img"><!-- Imagem de parcerias (retângulo) -->
+            <img src="{{ url_for('static', filename='images/parcerias.png') }}" alt="Parcerias" class="parcerias-img">
+        </div>
+    </div>
+</body>
+</html>
