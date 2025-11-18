@@ -25,7 +25,7 @@ services:
     depends_on:
       - mysql
     expose:
-      - "8000"
+      - "5000"
     networks:
       - criptorace_net
       - proxy
