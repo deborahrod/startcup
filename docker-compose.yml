@@ -1,4 +1,4 @@
-
+version: "3.8"
 
 services:
   mysql:
@@ -17,10 +17,25 @@ services:
       - ./init:/docker-entrypoint-initdb.d
     networks:
       - criptorace_net
+      - proxy
+
+  backend:
+    build: .
+    container_name: criptorace-backend
+    depends_on:
+      - mysql
+    expose:
+      - "8000"
+    networks:
+      - criptorace_net
+      - proxy
 
 volumes:
   mysql_data:
 
 networks:
+  proxy:
+    external: true
+
   criptorace_net:
     driver: bridge
