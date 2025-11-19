@@ -24,8 +24,15 @@ services:
     container_name: criptorace-backend
     depends_on:
       - mysql
-    expose:
-      - "5000"
+    environment:
+      MYSQL_HOST: mysql_criptorace
+      MYSQL_PORT: 3306
+      MYSQL_USER: criptoracer
+      MYSQL_PASSWORD: raceCripto123#&
+      MYSQL_DB: criptorace
+      SECRET_KEY: "dev_key"
+    ports:
+      - "5001:5000"
     networks:
       - criptorace_net
       - proxy
