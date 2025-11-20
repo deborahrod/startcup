@@ -14,6 +14,8 @@ from .routes.acerto_candidato_routes import bp_acertos
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+    static_url_path='/jogo/static', 
+    static_folder='static'
 
     # Inicializa extensões
     db.init_app(app)
