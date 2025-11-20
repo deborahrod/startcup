@@ -12,15 +12,12 @@ from .routes.resposta_submetida_routes import bp_resposta_submetida
 from .routes.acerto_candidato_routes import bp_acertos
 
 def create_app():
-    app = Flask(
-        __name__,
-        static_folder='static',
-        static_url_path='/jogo/static'
-    )
+    app = Flask(__name__, static_folder='static', static_url_path='/jogo/static')
+    app.config.from_object(Config)
+
     # Inicializa extensões
     db.init_app(app)
 
-    app.config.from_object(Config)
     # Registra blueprints
     app.register_blueprint(health_bp)
     app.register_blueprint(bp_candidato)
