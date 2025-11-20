@@ -405,13 +405,34 @@
         const modalClose = document.getElementById('modalClose');
         const fileInput = document.getElementById('fileInput');
 
-        const desafios = [
-            { titulo: "Vamos tentar até o primeiro", descricao: "Complete o primeiro desafio com sucesso!", moedas: 100 },
-            { titulo: "Desafio de Programação", descricao: "Resolva um problema usando lógica e código.", moedas: 150 },
-            { titulo: "Desafio de Robótica", descricao: "Programe um robô para realizar uma tarefa.", moedas: 200 },
-            { titulo: "Desafio de Inovação", descricao: "Crie uma solução inovadora para um problema real.", moedas: 180 },
-            { titulo: "Desafio em Equipe", descricao: "Trabalhe em equipe e supere limites!", moedas: 250 }
+       const desafios = [
+            {
+                titulo: "Tirar uma foto com um cosplay",
+                descricao: "Tire uma foto com qualquer cosplay presente no evento e apresente para a organização.",
+                moedas: 250
+            },
+            {
+                titulo: "Postar uma foto nos stories e marcar o @numbers_ifg",
+                descricao: "Faça uma postagem nos stories do Instagram marcando o perfil @numbers_ifg.",
+                moedas: 250
+            },
+            {
+                titulo: "Chame alguém para participar do circuito",
+                descricao: "Convide uma pessoa nova para participar do Circuito Start Cup e apresente à equipe.",
+                moedas: 250
+            },
+            {
+                titulo: "Grave um vídeo e poste nos stories e marque o @numbers_ifg",
+                descricao: "Grave um vídeo sobre sua participação no circuito, poste nos stories e marque @numbers_ifg.",
+                moedas: 250
+            },
+            {
+                titulo: "Achou algo interessante na open? Mostre pra gente",
+                descricao: "Encontre algo interessante na Open do evento e mostre para a organização.",
+                moedas: 250
+            }
         ];
+
 
         modalClose.onclick = () => modalOverlay.classList.remove('show');
         modalOverlay.onclick = e => { if (e.target === modalOverlay) modalOverlay.classList.remove('show'); }
