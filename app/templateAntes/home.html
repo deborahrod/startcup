@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>START CUP</title>
+    <title>START CUP - Home</title>
     <style>
         @font-face {
             font-family: 'Rague';
@@ -32,7 +31,7 @@
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: min(800px, 95vw);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -41,98 +40,68 @@
             padding: 0 clamp(10px, 2vw, 20px);
         }
 
-        /* Título START CUP */
         .title {
             font-size: clamp(2rem, 8vw, 4rem);
             font-weight: bold;
             color: #64B5F6;
             text-transform: uppercase;
             letter-spacing: clamp(1px, 0.3vw, 3px);
-            margin-bottom: clamp(10px, 2vh, 20px);
             text-shadow: 0 0 20px rgba(100, 181, 246, 0.5);
+            margin-bottom: clamp(20px, 4vh, 40px);
             text-align: center;
             line-height: 1.2;
         }
 
-        /* Ícone de troféu */
-        .trophy {
-            width: clamp(100px, 20vw, 160px);
-            height: clamp(100px, 20vw, 160px);
-            margin-bottom: clamp(10px, 2vh, 20px);
-            filter: drop-shadow(0 0 10px rgba(100, 181, 246, 0.5));
-        }
-
-        .trophy img {
+        .buttons-container {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
+            max-width: min(600px, 90vw);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(10px, 2vh, 15px);
+            margin-bottom: clamp(20px, 4vh, 40px);
         }
 
-        /* Botão Iniciar */
-        .start-button {
-            background: linear-gradient(135deg, #64B5F6 0%, #2196F3 100%);
+        .menu-button {
+            background: #64B5F6;
             color: white;
             border: none;
-            padding: clamp(12px, 2vw, 15px) clamp(25px, 5vw, 40px);
-            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            padding: clamp(14px, 2.5vw, 18px) clamp(20px, 4vw, 30px);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: clamp(1px, 0.2vw, 2px);
-            border-radius: 30px;
+            letter-spacing: clamp(0.5px, 0.1vw, 1px);
+            border-radius: 8px;
             cursor: pointer;
-            margin-bottom: clamp(20px, 4vh, 40px);
-            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
+            width: 100%;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(100, 181, 246, 0.3);
         }
 
-        .start-button:hover {
+        .menu-button:hover {
+            background: #42A5F5;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(100, 181, 246, 0.6);
-            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            box-shadow: 0 6px 15px rgba(100, 181, 246, 0.4);
         }
 
-        .start-button:active {
+        .menu-button:active {
             transform: translateY(0);
         }
 
-        /* Container das imagens */
-        .images-container {
-            width: 100%;
-            max-width: min(800px, 95vw);
+        .parcerias-container {
             margin-top: auto;
-            margin-bottom: clamp(15px, 3vh, 40px);
+            margin-bottom: clamp(15px, 3vh, 20px);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 0;
-            line-height: 0;
-            font-size: 0;
-        }
-
-        /* Imagem do logo (quadrado) - acima da imagem de parcerias */
-        .logo-img {
-            width: clamp(120px, 25vw, 200px);
-            height: clamp(120px, 25vw, 200px);
-            object-fit: contain;
-            display: block;
-            margin: 0;
-            padding: 0;
-            vertical-align: bottom;
-        }
-
-        /* Imagem de parcerias (retângulo) */
-        .parcerias-img {
             width: 100%;
-            max-width: min(800px, 95vw);
+            padding: 0 clamp(10px, 2vw, 20px);
+        }
+
+        .parcerias-img {
+            max-width: min(500px, 90vw);
+            width: 100%;
             height: auto;
             display: block;
-            margin: 0;
-            padding: 0;
-            vertical-align: bottom;
         }
 
         /* Botão Voltar */
@@ -178,15 +147,19 @@
             }
 
             .title {
-                margin-bottom: 15px;
-            }
-
-            .start-button {
-                padding: 12px 30px;
                 margin-bottom: 25px;
             }
 
-            .images-container {
+            .buttons-container {
+                gap: 12px;
+                margin-bottom: 25px;
+            }
+
+            .menu-button {
+                padding: 14px 20px;
+            }
+
+            .parcerias-container {
                 margin-bottom: 15px;
             }
         }
@@ -194,6 +167,10 @@
         @media (min-width: 481px) and (max-width: 768px) {
             body {
                 padding: 20px 15px;
+            }
+
+            .buttons-container {
+                gap: 13px;
             }
         }
 
@@ -206,53 +183,40 @@
         @media (orientation: landscape) and (max-height: 600px) {
             .title {
                 font-size: clamp(1.5rem, 5vh, 3rem);
-                margin-bottom: 10px;
-            }
-
-            .trophy {
-                width: clamp(80px, 16vh, 120px);
-                height: clamp(80px, 16vh, 120px);
-                margin-bottom: 10px;
-            }
-
-            .trophy img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-
-            .start-button {
                 margin-bottom: 20px;
             }
 
-            .images-container {
-                margin-bottom: 15px;
+            .buttons-container {
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .menu-button {
+                padding: 12px 20px;
+            }
+
+            .parcerias-container {
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
-
 <body>
-    <a href="#" class="back-button" style="display: none;">&lt;</a>
+    <a href="{{ url_for('frontend.index') }}" class="back-button">&lt;</a>
     <div class="container">
-        <!-- Título START CUP -->
         <h1 class="title">START CUP</h1>
-
-        <!-- Ícone de troféu -->
-        <div class="trophy">
-            <img src="{{ url_for('static', filename='images/trofeu.png') }}" alt="Troféu">
-        </div>
-
-        <!-- Botão Iniciar -->
-        <a href="{{ url_for('frontend.home') }}" class="start-button">Iniciar</a>
-
-        <!-- Container das imagens -->
-        <div class="images-container"><!-- Imagem do logo (quadrado) - acima da imagem de parcerias -->
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo START"
-                class="logo-img"><!-- Imagem de parcerias (retângulo) -->
-            <img src="{{ url_for('static', filename='images/parcerias.png') }}" alt="Parcerias" class="parcerias-img">
+        
+        <div class="buttons-container">
+            <a href="{{ url_for('frontend.inscrevase') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Inscreva-se</a>
+            <a href="{{ url_for('frontend.desafios') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Desafios</a>
+            <a href="{{ url_for('frontend.ranking') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Ranking</a>
+            <a href="#" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Ver Regras</a>
         </div>
     </div>
-</body>
 
+    <div class="parcerias-container">
+        <img src="{{ url_for('static', filename='images/parcerias.png') }}" alt="Parcerias" class="parcerias-img">
+    </div>
+</body>
 </html>
+

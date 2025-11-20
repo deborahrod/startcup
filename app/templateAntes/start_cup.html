@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>START CUP</title>
     <style>
+        @font-face {
+            font-family: 'Rague';
+            src: url("{{ url_for('static', filename='fonts/Rague-Regular.otf') }}") format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,14 +19,14 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Rague', 'Arial', sans-serif;
             background: #0a1a3a;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 20px;
+            padding: clamp(15px, 3vw, 40px) clamp(10px, 2vw, 20px);
         }
 
         .container {
@@ -30,32 +37,34 @@
             align-items: center;
             justify-content: center;
             flex: 1;
+            padding: 0 clamp(10px, 2vw, 20px);
         }
 
         /* Título START CUP */
         .title {
-            font-size: 6rem;
+            font-size: clamp(2rem, 8vw, 4rem);
             font-weight: bold;
             color: #64B5F6;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
+            letter-spacing: clamp(1px, 0.3vw, 3px);
+            margin-bottom: clamp(10px, 2vh, 20px);
             text-shadow: 0 0 20px rgba(100, 181, 246, 0.5);
             text-align: center;
+            line-height: 1.2;
         }
 
         /* Ícone de troféu */
         .trophy {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            color: #64B5F6;
+            width: clamp(100px, 20vw, 160px);
+            height: clamp(100px, 20vw, 160px);
+            margin-bottom: clamp(10px, 2vh, 20px);
             filter: drop-shadow(0 0 10px rgba(100, 181, 246, 0.5));
         }
 
-        .trophy svg {
+        .trophy img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
         }
 
         /* Botão Iniciar */
@@ -63,18 +72,19 @@
             background: linear-gradient(135deg, #64B5F6 0%, #2196F3 100%);
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            padding: clamp(12px, 2vw, 15px) clamp(25px, 5vw, 40px);
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: clamp(1px, 0.2vw, 2px);
             border-radius: 30px;
             cursor: pointer;
-            margin-bottom: 40px;
+            margin-bottom: clamp(20px, 4vh, 40px);
             box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            white-space: nowrap;
         }
 
         .start-button:hover {
@@ -90,9 +100,9 @@
         /* Container das imagens */
         .images-container {
             width: 100%;
-            max-width: 800px;
+            max-width: min(800px, 95vw);
             margin-top: auto;
-            margin-bottom: 40px;
+            margin-bottom: clamp(15px, 3vh, 40px);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -104,8 +114,8 @@
 
         /* Imagem do logo (quadrado) - acima da imagem de parcerias */
         .logo-img {
-            width: 200px;
-            height: 200px;
+            width: clamp(120px, 25vw, 200px);
+            height: clamp(120px, 25vw, 200px);
             object-fit: contain;
             display: block;
             margin: 0;
@@ -116,7 +126,7 @@
         /* Imagem de parcerias (retângulo) */
         .parcerias-img {
             width: 100%;
-            max-width: 800px;
+            max-width: min(800px, 95vw);
             height: auto;
             display: block;
             margin: 0;
@@ -127,15 +137,15 @@
         /* Botão Voltar */
         .back-button {
             position: fixed;
-            top: 20px;
-            left: 20px;
+            top: clamp(10px, 2vh, 20px);
+            left: clamp(10px, 2vw, 20px);
             background: #64B5F6;
             color: white;
             border: none;
-            width: 50px;
-            height: 50px;
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -156,19 +166,66 @@
             transform: scale(0.95);
         }
 
-        @media (max-width: 768px) {
+        /* Media Queries para diferentes tamanhos de tela */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px 10px;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
             .title {
-                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .start-button {
+                padding: 12px 30px;
+                margin-bottom: 25px;
+            }
+
+            .images-container {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 600px) {
+            .title {
+                font-size: clamp(1.5rem, 5vh, 3rem);
+                margin-bottom: 10px;
             }
 
             .trophy {
-                width: 60px;
-                height: 60px;
+                width: clamp(80px, 16vh, 120px);
+                height: clamp(80px, 16vh, 120px);
+                margin-bottom: 10px;
             }
 
-            .logo-img {
-                width: 150px;
-                height: 150px;
+            .trophy img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .start-button {
+                margin-bottom: 20px;
+            }
+
+            .images-container {
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -181,20 +238,16 @@
 
         <!-- Ícone de troféu -->
         <div class="trophy">
-            <svg viewBox="0 0 100 100" fill="currentColor">
-                <path d="M50 10 L40 30 L20 30 L30 45 L25 70 L50 60 L75 70 L70 45 L80 30 L60 30 Z" />
-                <rect x="45" y="60" width="10" height="30" rx="2" />
-                <rect x="40" y="85" width="20" height="5" rx="2" />
-            </svg>
+            <img src="{{ url_for('static', filename='images/trofeu.png') }}" alt="Troféu">
         </div>
 
         <!-- Botão Iniciar -->
-        <a href="home.html" class="start-button">Iniciar</a>
+        <a href="{{ url_for('frontend.home') }}" class="start-button">Iniciar</a>
 
         <!-- Container das imagens -->
         <div class="images-container"><!-- Imagem do logo (quadrado) - acima da imagem de parcerias -->
-            <img src="images/logo.png" alt="Logo START" class="logo-img"><!-- Imagem de parcerias (retângulo) -->
-            <img src="images/parcerias.png" alt="Parcerias" class="parcerias-img">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo START" class="logo-img"><!-- Imagem de parcerias (retângulo) -->
+            <img src="{{ url_for('static', filename='images/parcerias.png') }}" alt="Parcerias" class="parcerias-img">
         </div>
     </div>
 </body>
