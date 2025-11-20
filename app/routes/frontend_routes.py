@@ -34,3 +34,7 @@ def entrar():
 @bp_frontend.route('/desafiosconhecidos')
 def desafios():
     return render_template('desafios.html')
+
+@bp_frontend.route('/regras')
+def regras():
+    return render_template('regras.html')

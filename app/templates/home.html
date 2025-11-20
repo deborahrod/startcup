@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -201,16 +202,21 @@
         }
     </style>
 </head>
+
 <body>
     <a href="{{ url_for('frontend.index') }}" class="back-button">&lt;</a>
     <div class="container">
         <h1 class="title">START CUP</h1>
-        
+
         <div class="buttons-container">
-            <a href="{{ url_for('frontend.inscrevase') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Inscreva-se</a>
-            <a href="{{ url_for('frontend.desafios') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Desafios</a>
-            <a href="{{ url_for('frontend.ranking') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Ranking</a>
-            <a href="#" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Ver Regras</a>
+            <a href="{{ url_for('frontend.inscrevase') }}" class="menu-button"
+                style="text-decoration: none; display: block; text-align: center;">Inscreva-se</a>
+            <a href="{{ url_for('frontend.desafios') }}" class="menu-button"
+                style="text-decoration: none; display: block; text-align: center;">Desafios</a>
+            <a href="{{ url_for('frontend.ranking') }}" class="menu-button"
+                style="text-decoration: none; display: block; text-align: center;">Ranking</a>
+            <a href="{{ url_for('frontend.regras') }}" class="menu-button" style="text-decoration: none; display: block; text-align: center;">Ver
+                Regras</a>
         </div>
     </div>
 
@@ -218,5 +224,5 @@
         <img src="{{ url_for('static', filename='images/parcerias.png') }}" alt="Parcerias" class="parcerias-img">
     </div>
 </body>
-</html>
 
+</html>
