@@ -32,7 +32,7 @@ services:
       MYSQL_DB: criptorace
       SECRET_KEY: "dev_key"
     ports:
-      - "5001:5000"
+      - "5001:5001"
     networks:
       - criptorace_net
       - proxy
