@@ -8,7 +8,7 @@ from app.services.resposta_desafio_service import buscar_resposta_e_desafio
 from app.services.resposta_submetida_service import cadastrar_resposta_submetida
 from app.extensions import db
 
-bp_resposta_desafio = Blueprint('resposta_bp', __name__, url_prefix='/respostas')
+bp_resposta_desafio = Blueprint('resposta_bp', __name__, url_prefix='/jogo/respostas')
 
 
 # 🟢 1️⃣ Criar resposta

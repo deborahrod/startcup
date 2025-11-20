@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.services import time_candidato_service
 
-bp_time_candidato = Blueprint('bp_time_candidato', __name__)
+bp_time_candidato = Blueprint('bp_time_candidato', __name__,  url_prefix='/jogo')
 
 @bp_time_candidato.route('/times/<int:id_time>/membros', methods=['GET'])
 def listar_membros(id_time):

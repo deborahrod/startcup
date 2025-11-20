@@ -1,7 +1,7 @@
 # app/routes/frontend_routes.py
 from flask import Blueprint, render_template
 
-bp_frontend = Blueprint('frontend', __name__)
+bp_frontend = Blueprint('frontend', __name__,  url_prefix='/jogo')
 
 @bp_frontend.route('/')
 def index():
