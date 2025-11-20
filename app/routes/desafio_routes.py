@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.services import desafio_service
 
-bp_desafio = Blueprint('desafio_bp', __name__, url_prefix='/desafios')
+bp_desafio = Blueprint('desafio_bp', __name__, url_prefix='/jogo/desafios')
 
 
 # 🟢 1️⃣ Criar desafio

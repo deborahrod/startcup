@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.services import time_service
 
-bp_time = Blueprint('bp_time', __name__)
+bp_time = Blueprint('bp_time', __name__,  url_prefix='/jogo')
 #bp_candidato = Blueprint('candidato', __name__, url_prefix='/candidatos')
 
 @bp_time.route('/times', methods=['POST'])

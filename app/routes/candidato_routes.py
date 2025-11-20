@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from app.services import candidato_service as service
 from sqlalchemy.exc import IntegrityError
 
-bp_candidato = Blueprint('candidato', __name__, url_prefix='/candidatos')
+bp_candidato = Blueprint('candidato', __name__, url_prefix='/jogo/candidatos')
 
 @bp_candidato.route('/', methods=['POST'])
 def criar():
